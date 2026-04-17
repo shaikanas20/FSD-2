@@ -1,0 +1,14 @@
+com\jwt\auth\model\User.class
+com\jwt\auth\security\TokenBlacklistService.class
+com\jwt\auth\model\AuthResponse.class
+com\jwt\auth\controller\AuthController.class
+com\jwt\auth\JwtAuthApplication.class
+com\jwt\auth\security\JwtAuthFilter.class
+com\jwt\auth\model\RegisterRequest.class
+com\jwt\auth\service\AuthService.class
+com\jwt\auth\config\DataInitializer.class
+com\jwt\auth\model\AuthRequest.class
+com\jwt\auth\repository\UserRepository.class
+com\jwt\auth\security\SecurityConfig.class
+com\jwt\auth\security\CustomUserDetailsService.class
+com\jwt\auth\security\JwtUtil.class
