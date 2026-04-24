@@ -1,0 +1,24 @@
+{
+  "name": "experiment10-student-crud",
+  "version": "2.0.0",
+  "description": "Advanced CRUD Operations on MongoDB using Node.js + Express.js with Premium UI",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": ["crud", "nodejs", "express", "mongodb", "mongoose", "rest-api"],
+  "author": "Student",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "express-validator": "^7.2.0",
+    "mongoose": "^8.7.0",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}
