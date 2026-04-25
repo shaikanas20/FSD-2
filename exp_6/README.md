@@ -1,11 +1,11 @@
 # Experiment 6: JWT Authentication with Spring Boot
 
-## 🎯 Objective
+# Objective
 Implement JWT (JSON Web Token) Authentication in a Spring Boot backend application to manage user sessions, secure API endpoints, and demonstrate token-based authentication using Postman.
 
 ---
 
-## 📚 Technologies Used
+# Technologies Used
 | Technology       | Purpose                          |
 |------------------|----------------------------------|
 | Spring Boot 3.2  | Backend framework                |
@@ -18,7 +18,7 @@ Implement JWT (JSON Web Token) Authentication in a Spring Boot backend applicati
 
 ---
 
-## 🧩 Project Structure
+# Project Structure
 ```
 exp_6/
 ├── pom.xml                                          # Maven dependencies
@@ -58,9 +58,9 @@ exp_6/
 
 ---
 
-## 🔧 How JWT Authentication Works
+#  How JWT Authentication Works
 
-### Flow Diagram
+# Flow Diagram
 ```
 ┌──────────┐    POST /login     ┌──────────────┐
 │  Client  │ ─────────────────► │   Server     │
@@ -78,7 +78,7 @@ exp_6/
 └──────────┘                    └──────────────┘
 ```
 
-### Step-by-Step Process:
+# Step-by-Step Process:
 1. **User Registration**: Client sends username & password → Server hashes password with BCrypt → Stores in H2 database
 2. **User Login**: Client sends credentials → Server verifies → Generates JWT token → Returns token to client
 3. **Access Protected Route**: Client sends request with `Authorization: Bearer <token>` header → Server validates JWT → Returns protected data
@@ -86,13 +86,13 @@ exp_6/
 
 ---
 
-## 🚀 How to Run
+# How to Run
 
-### Prerequisites
+# Prerequisites
 - Java 17 or higher
 - Maven 3.6+
 
-### Steps
+# Steps
 ```bash
 # Navigate to project directory
 cd exp_6
@@ -106,7 +106,7 @@ mvn spring-boot:run
 
 The server will start on **http://localhost:5000**
 
-### Pre-loaded Test Users
+# Pre-loaded Test Users
 | Username  | Password    | Role  |
 |-----------|-------------|-------|
 | user123   | password123 | USER  |
@@ -114,7 +114,7 @@ The server will start on **http://localhost:5000**
 
 ---
 
-## 🧪 API Endpoints
+# API Endpoints
 
 | Method | Endpoint              | Description                  | Auth Required |
 |--------|----------------------|------------------------------|---------------|
@@ -127,9 +127,9 @@ The server will start on **http://localhost:5000**
 
 ---
 
-## 📮 Postman Testing Guide
+#  Postman Testing Guide
 
-### 1. Register a New User (POST)
+# 1. Register a New User (POST)
 - **URL**: `http://localhost:5000/api/auth/register`
 - **Method**: POST
 - **Body** (raw JSON):
@@ -149,7 +149,7 @@ The server will start on **http://localhost:5000**
 }
 ```
 
-### 2. Login and Get JWT Token (POST)
+# 2. Login and Get JWT Token (POST)
 - **URL**: `http://localhost:5000/api/auth/login`
 - **Method**: POST
 - **Body** (raw JSON):
@@ -168,7 +168,7 @@ The server will start on **http://localhost:5000**
 }
 ```
 
-### 3. Access Protected Route (GET)
+# 3. Access Protected Route (GET)
 - **URL**: `http://localhost:5000/api/auth/protected`
 - **Method**: GET
 - **Headers**:
@@ -184,13 +184,13 @@ The server will start on **http://localhost:5000**
 }
 ```
 
-### 4. Access Without Token (GET)
+# 4. Access Without Token (GET)
 - **URL**: `http://localhost:5000/api/auth/protected`
 - **Method**: GET
 - **No Authorization header**
 - **Expected Response**: 403 Forbidden
 
-### 5. Logout / Token Invalidation (POST)
+# 5. Logout / Token Invalidation (POST)
 - **URL**: `http://localhost:5000/api/auth/logout`
 - **Method**: POST
 - **Headers**:
@@ -205,7 +205,7 @@ The server will start on **http://localhost:5000**
 }
 ```
 
-### 6. Access After Logout (GET)
+# 6. Access After Logout (GET)
 - **URL**: `http://localhost:5000/api/auth/protected`
 - **Method**: GET
 - **Headers**: Same token as before logout
@@ -213,9 +213,9 @@ The server will start on **http://localhost:5000**
 
 ---
 
-## 🔐 Security Implementation Details
+# Security Implementation Details
 
-### JWT Token Structure
+# JWT Token Structure
 A JWT token consists of three parts separated by dots:
 ```
 Header.Payload.Signature
@@ -225,31 +225,21 @@ Header.Payload.Signature
 - **Payload**: Contains claims (username, role, expiration)
 - **Signature**: Verifies the token hasn't been tampered with
 
-### Key Security Features
+# Key Security Features
 1. **BCrypt Password Hashing**: Passwords are never stored in plain text
 2. **Stateless Authentication**: No server-side sessions; JWT carries all auth info
 3. **Token Expiration**: Tokens expire after 1 hour (configurable)
 4. **Token Blacklisting**: Logout invalidates tokens immediately
 5. **Spring Security Filter Chain**: Every request passes through JWT validation
 
-### Configuration
+# Configuration
 - JWT Secret Key: Configured in `application.properties`
 - Token Expiration: 3600000ms (1 hour)
 - Password Encoding: BCrypt with default strength
 
 ---
 
-## 📸 Screenshots
-Screenshots demonstrating the JWT authentication flow are stored in the `screenshots/` folder:
-1. **Register User** - New user registration via Postman
-2. **Login Success** - JWT token received after login
-3. **Protected Route** - Accessing secured endpoint with token
-4. **Logout** - Token invalidation
-5. **Access After Logout** - Denied access after token invalidation
-
----
-
-## 📝 Key Learnings
+# Key Learnings
 - JWT provides a stateless authentication mechanism suitable for REST APIs
 - Spring Security integrates seamlessly with custom JWT filters
 - Token blacklisting is essential for proper logout implementation

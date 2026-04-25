@@ -1,4 +1,4 @@
-###  Experiment 10 — Student Management System (CRUD)
+### 🎓 Experiment 10 — Student Management System (CRUD)
 
 ## Advanced CRUD Operations on MongoDB using Node.js + Express.js with  Dashboard UI 
 
@@ -122,7 +122,7 @@ POST http://localhost:5000/api/students
 Content-Type: application/json
 
 {
-  "studentId": "STU001",
+  "studentId": "24bt1",
   "name": "shaik",
   "email": "shaik@gmail.com",
   "course": "B.tech",
